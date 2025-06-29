@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--establece la versión de html-->
+<html lang="zxx">
+
+<!--para titulo, descripcción, metadatos y links de css de la página web-->
+
+<head>
+    <!--para usar caracteres especiales (ñ, á, é, í, ó, ú)-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Nombre del sitio-->
+    <title>Ecommerce - Blog</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!--Fuentes de GoogleFonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<!--lo que se va a mostrar en pantalla (cuerpo del sitio web)-->
+
+<body>
+
+    <header>
+        <!--span para modificar un elemento vía css-->
+        <h1 class="nombre-sitio">Tienda <span>Muebles</span></h1>
+    </header>
+
+    <div class="contenedor-navegacion">
+        <nav class="nav-principal contenedor">
+            <a class="enlace" href="index.html">Inicio</a>
+            <a class="enlace" href="nosotros.html">Nosotros</a>
+            <a class="enlace" href="tienda.html">Tienda</a>
+            <a class="enlace" href="blog.html">Blog</a>
+            <a class="enlace" href="galeria.html">Galería</a>
+            <a class="enlace" href="contacto.html">Contacto</a>
+        </nav>
+    </div>
+
+    <main class="contenido-principal contenedor">
+        <h2 class="text-center">Nuestro Blog</h2>
+
+        <section class="contenedor-blog">
+            <div class="blog">
+                <article class="entrada">
+                    <!--
+                        para contenido que por si solo es auto-representativo
+                        e.j. entradas de blog, artículos de periodico, comentarios, etc
+                    -->
+                    <h2>Guía de Colores</h2>
+                    <div class="imagen">
+                        <img src="./images/nosotros.jpg" alt="Imagen Blog">
+                    </div>
+                    <div class="entrada-meta">
+                        <p>Fecha: <span>22 de octubre de 2022</span></p>
+                        <p>Escrito por: <span>TiendaMuebles</span></p>
+                    </div>
+
+                    <div class="entrada-blog">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, perspiciatis? Ullam
+                            praesentium repudiandae tempora eius tenetur architecto odit, saepe odio sapiente molestiae
+                            quis asperiores maiores sit nam iusto ipsa ducimus.
+                        </p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi fugit est culpa, nesciunt nobis
+                        quos, ullam delectus sint quia id iure blanditiis voluptatum corporis sit atque commodi
+                        assumenda fugiat provident!
+                    </div>
+                    <a href="entrada.html" class="btn max-width-30">Leer</a>
+                </article>
+
+                <article class="entrada">
+                    <!--
+                        para contenido que por si solo es auto-representativo
+                        e.j. entradas de blog, artículos de periodico, comentarios, etc
+                    -->
+                    <h2>Guía de Colores</h2>
+                    <div class="imagen">
+                        <img src="./images/nosotros.jpg" alt="Imagen Blog">
+                    </div>
+                    <div class="entrada-meta">
+                        <p>Fecha: <span>22 de octubre de 2022</span></p>
+                        <p>Escrito por: <span>TiendaMuebles</span></p>
+                    </div>
+
+                    <div class="entrada-blog">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, perspiciatis? Ullam
+                            praesentium repudiandae tempora eius tenetur architecto odit, saepe odio sapiente molestiae
+                            quis asperiores maiores sit nam iusto ipsa ducimus.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi fugit est culpa, nesciunt
+                            nobis
+                            quos, ullam delectus sint quia id iure blanditiis voluptatum corporis sit atque commodi
+                            assumenda fugiat provident!
+                        </p>
+                    </div>
+
+                    <a href="entrada.html" class="btn max-width-30">Leer</a>
+                </article>
+            </div>
+
+            <aside>
+                <!--aside = barra lateral-->
+                <h3>Otras Entradas del Blog</h3>
+
+                <ul>
+                    <li>
+                        <a href="entrada.html">Guía de Colores</a>
+                    </li>
+                    <li>
+                        <a href="entrada.html">Nuevos Modelos</a>
+                    </li>
+                    <li>
+                        <a href="entrada.html">Guía para Diseño de Interiores</a>
+                    </li>
+                    <li>
+                        <a href="entrada.html">Guía para Diseño de Exteriores</a>
+                    </li>
+                </ul>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="contenedor grid-footer">
+            <div>
+                <h3>Categorías</h3>
+                <nav class="footer-menu">
+                    <a href="">Cocina</a>
+                    <a href="">Oficina</a>
+                    <a href="">Jardín</a>
+                    <a href="">Cochera</a>
+                    <a href="">Dormitorios</a>
+                </nav>
+            </div>
+            <div>
+                <h3>Sobre Nosotros</h3>
+                <nav class="footer-menu">
+                    <a href="">Nustra Historia</a>
+                    <a href="">Misión, Visión y Valores</a>
+                    <a href="">Carreras</a>
+                    <a href="">Política de Privacidad</a>
+                    <a href="">Términos del Servicio</a>
+                </nav>
+            </div>
+            <div>
+                <h3>Soporte</h3>
+                <nav class="footer-menu">
+                    <a href="">Preguntas Frecuentes</a>
+                    <a href="">Ayuda en Línea</a>
+                    <a href="">Confianza y Seguridad</a>
+                </nav>
+            </div>
+        </div>
+        <p class="copyright">Todos los Derechos Reservados, TiendaMuebles</p>
+    </footer>
+    <!--https://validator.w3.org/#validate_by_upload+with_options para revisar que el código HTML siga buenas prácticas-->
+</body>
+
+</html>

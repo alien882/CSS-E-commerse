@@ -1,0 +1,21 @@
+<form class="form1">
+    <input class="c" type="checkbox" name="hola" value="1">
+    <input class="c" type="checkbox" name="hola" value="2">
+    <input class="c" type="checkbox" name="hola" value="3">
+    <input class="c" type="checkbox" name="hola" value="4">
+    <input class="c" type="checkbox" name="hola" value="5">
+    <input type="submit" value="ver seleccionados">
+</form>
+
+<script>
+    const checkboxes = document.querySelector(".form1");
+    checkboxes.addEventListener('submit', e => {
+        e.preventDefault()
+        const arr = document.querySelectorAll('input[name="hola"]:checked');
+
+        arr.forEach(element => console.log(element.value))
+
+
+
+    })
+</script>

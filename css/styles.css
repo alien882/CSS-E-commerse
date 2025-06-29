@@ -1,0 +1,545 @@
+/*
+    Estrucrura básica de css
+
+        "selector css" {
+            "propiedad": "valor"; <- declaración
+        }
+
+    Colores en css
+
+        Nombre (no se recomienda usar este método)
+            red
+            blue
+            green
+
+        Hexadecimal
+
+            Estructura
+            #"valores entre 3 ó 6 dígitos"
+        
+            #000000 -> Negro
+            #ffffff -> Blanco
+        
+        RGB (rgba para transparencia: del 0 al 1)
+        
+            Estructura
+            rgb("rojo", "verde", "azul")
+
+            rgb(255, 255, 255) -> Blanco 
+            rgb(0 0 0) -> Negro
+
+        HSL (hsla para transparencia: del 0 al 1)
+
+            Estructura
+            hsl("tono (0 a 360)", "saturación (0% al 100%)", "claridad (0% al 100%)")
+
+            hsl(0, 100%, 80) -> rojo, color  (muy saturado), muy claro = un rojo claro  
+
+
+        NOTA: en nuevas versiones de navegadores, los valores de rgb y hsl no necesitan tener comas
+                    y rgb ya soporta transparencia ej: rgb(0 0 0 / .5) y hsl(0 0% 0% / .5);
+
+    Especificidad en css
+        "elemento 1" "elemento 2" "elemento x"... { para seleccionar el elemento x 
+            "código css"
+        }
+
+        Jerarquía de selectores css
+            1.- valor!important; -> (1,0,0,0)
+            2.- id #nombre-id -> (0,1,0,0)
+            3.- clase (class) .nombre-clase -> (0,0,1,0)
+            4.- etiqueta html h1 -> (0,0,0,1)
+
+    Estilos para escribir código css
+        Modulos
+        BEM 
+        SMACSS
+    
+    Box Model (Modelo de caja)
+        En css todo en una caja y tiene 4 elementos:   
+            1.-Margin (margen): medida del las orillas del elemento hacia afuera del elemento 
+            2.-    Border (borde)
+            3.-        Padding (relleno): medida del las orillas del elemento hacia el centro del contenido
+            4.-            contenido
+    
+    Displays
+        block -> un elemento se posicionará debajo del otro y tomará todo el ancho disponible
+        inline -> un elemento se posicionará a la derecha del otro
+        inline-block -> permite darle height, width, y margin a un elemento inline
+
+    Flexbox
+        Modelo Unidimensional para crear layouts
+        Se pueden colocar o ditribuir elementos en una dirección 
+        fila (row) o columna (column)
+        Es especialmente diseñado para alinear elementos, pero solo
+        al primer mivel de hijos en un elemento padre
+
+        si la direccion es row, justify-content se utiliza para alinear elementos horizontalmente (alinear a la izquieda, centro, derecha)
+        si la direccion es column, justify-content se utiliza para alinear elementos verticalmente (inicio, centro, final)
+
+        si la direccion es row, align-items se utiliza para alinear elementos verticalmente (inicio, centro, final)
+        si la direccion es column, align-items se utiliza para alinear elementos horizontalmente (alinear a la izquieda, centro, derecha)
+
+        para cambien la dirección de flexbox usa: flex-direction
+
+        NOTA: la dirección por defecto de flexbox es row
+
+    CSS Grid o CSS Grid Layout
+    te permite definir la ubicación y el tamaño de tu sitio web
+    tambbien permite distribuir elementos en row y column
+
+    Utiliza Flexbox para la alineación o distribución de elementos que estarán dentro de contenedores
+    Utiliza CSS Grid para definfir el Layout de tu sitio web (contenedores de elementos)
+*/
+
+/* Para aplicar boder-box a todos los elementos */
+html {
+    /* para que no se modifique en tamaño de un elemento con width y padding */
+    box-sizing: border-box;
+    font-size : 62.5%;
+    /* 1rem = 10px */
+    /*html maneja 1rem = 16px por defecto*/
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* Fuentes */
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size  : 1.6rem;
+    /* Interlineado */
+    line-height: 2;
+}
+
+/* Globales */
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    margin     : 0 0 5rem 0;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+a {
+    text-decoration: none;
+    color          : #000;
+}
+
+img {
+    max-width: 100%;
+    display  : block;
+}
+
+.contenedor {
+    max-width        : 120rem;
+    /*
+        margin-top   : 0;
+        margin-right : auto;
+        margin-bottom: 0;
+        margin-left  : auto;
+    */
+
+    margin: 0 auto;
+}
+
+.btn {
+    background-color                       : #8cbe00;
+    display                                : block;
+    color                                  : #fff;
+    text-transform                         : uppercase;
+    font-weight                            : 900;
+    padding                                : 1rem;
+    /* transform animación  */
+    /* tansition para transisiones sintaxis: 1) elemento, 2) tiempo de la animación 3) la función */
+    transition                             : background-color .3s ease-out;
+    text-align                             : center;
+    border                                 : none;
+}
+
+.btn:hover {
+    background-color: #769c02;
+    cursor: pointer;
+}
+
+/* Utilidades */
+.text-center {
+    text-align: center;
+}
+
+.max-width-30 {
+    max-width: 30rem;
+}
+
+/* Header y Navegación */
+.nombre-sitio {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.nombre-sitio span {
+    color: #037bc0;
+}
+
+.contenedor-navegacion {
+    /*
+        border-color: #e1e1e1;
+        border-top-style: solid;
+        border-width: 1px;
+    */
+    border-top: .1rem solid #e1e1e1;
+}
+
+.nav-principal {
+    /*
+        padding-top: 20px;
+        padding-bottom: 20px; 
+    */
+    /* padding 20px 0 20px 0 */
+    padding        : 2rem 0;
+    display        : flex;
+    justify-content: space-between;
+}
+
+.hero {
+    /*para colorcar la imagen*/
+    background-image   : url(../images/principal.jpg);
+    /*para que no se repita la imagen*/
+    background-repeat  : no-repeat;
+    /*para que se estire la imagen*/
+    background-size    : cover;
+    background-position: center center;
+    /*para mostrar la imagen*/
+    height             : 55rem;
+}
+
+/* Categorías */
+.listado-categorias {
+    display                 : grid;
+    /* grid-template-columns: 200px 200px 200px 200px; */
+    /* grid-template-columns para crear las columnas */
+    grid-template-columns   : repeat(3, 1fr);
+    /* gap                  : separación entre elementos horizontalmente y verticalmente */
+    gap                     : 2rem;
+}
+
+.categorias {
+    padding: 5rem 0;
+}
+
+.categoria a {
+    display   : block;
+    text-align: center;
+    padding   : 2rem;
+    font-size : 2rem;
+}
+
+.categoria a:hover {
+    background-color          : #037bc0;
+    color                     : #fff;
+    /* para esquinas redondeadas (esquina inferior derecha)*/
+    border-bottom-right-radius: 1rem;
+}
+
+/* Bloque Nosotros */
+.sobre-nosotros {
+    /*background-image: linear-gradient(to right, #000 50%, red 100%); para degradados*/
+    background-image   : linear-gradient(to right, transparent 50%, #037bc0 50%), url(../images/nosotros.jpg);
+    padding            : 10rem 0;
+    background-repeat  : no-repeat;
+    background-position: left center;
+    background-size    : 100%, 110rem;
+    margin-top         : 5rem;
+}
+
+.sobre-nosotros-grid {
+    display              : grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap           : 10rem;
+}
+
+.texto-nosotros-grid {
+    /* grid-column para desplazar el elemento en este caso .texto-nosotros */
+    grid-column: 2 / 3;
+    color      : #fff;
+}
+
+.sobre-nosotros-flex {
+    display        : flex;
+    justify-content: flex-end;
+}
+
+.texto-nosotros-flex {
+    /* para definir la base flexible (en base al ancho, en este caso el 50% de 120rem) */
+    /* el tamaño inicial de un elemento flexible */
+    flex-basis  : 50%;
+    padding-left: 5rem;
+    color       : #fff;
+}
+
+
+/* Listado de Productos */
+.contenido-principal {
+    padding-top: 5rem;
+}
+
+.listado-productos {
+    display              : grid;
+    grid-template-columns: repeat(6, 1fr);
+    /*
+    column-gap           : 2rem;
+    row-gap              : 2rem;
+    */
+    gap                  : 2rem;
+}
+
+.producto {
+    background-color: #037bc0;
+}
+
+.producto:nth-child(1) {
+    /* nth-child(1) para seleccionar el primer hijo (elemento) */
+    grid-column: 1 /7;
+
+    /* 
+    grid-column-start: 1 ;
+    grid-column-end:  7 ;
+     */
+
+    display              : grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.producto:nth-child(1) img {
+    height    : 45rem;
+    width     : 100%;
+    /* para ajustar mejor las imagenes */
+    object-fit: cover;
+}
+
+.producto:nth-child(2) {
+    grid-column: 1 / 4;
+}
+
+
+.producto:nth-child(3) {
+    grid-column: 4 / 7;
+}
+
+.producto:nth-child(2) img,
+.producto:nth-child(3) img {
+    height    : 30rem;
+    width     : 100%;
+    object-fit: cover;
+}
+
+.producto:nth-child(4) {
+    grid-column: 1 / 3;
+}
+
+.producto:nth-child(5) {
+    grid-column: 3 / 5;
+}
+
+.producto:nth-child(6) {
+    grid-column: 5 / 7;
+}
+
+.producto:nth-child(4) img,
+.producto:nth-child(5) img,
+.producto:nth-child(6) img {
+    height    : 25rem;
+    width     : 100%;
+    object-fit: cover;
+}
+
+.texto-producto {
+    text-align: center;
+    color     : #fff;
+    padding   : 2rem;
+}
+
+/* Módulos */
+.texto-producto h3 {
+    margin: 0;
+}
+
+.texto-producto p {
+    margin: 0 0 .5rem 0;
+}
+
+.texto-producto .precio {
+    font-size  : 2.8rem;
+    font-weight: 900;
+}
+
+/* Footer */
+.site-footer {
+    border-top : .1rem solid #e1e1e1;
+    margin-top : 5rem;
+    padding-top: 5rem;
+}
+
+.site-footer h3 {
+    margin-bottom : .5rem;
+    flex-direction: column;
+}
+
+.grid-footer {
+    display              : grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap                  : 2rem;
+}
+
+.footer-menu a,
+.site-footer d {
+    display: block;
+}
+
+.copyright {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+
+/* Nosotros.html */
+.contenido-nosotros {
+    display              : grid;
+    grid-template-columns: 1fr 2fr;
+    /*si el contenido es menor a 300px asignale una fracción a cada elemento*/
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    column-gap           : 4rem;
+}
+
+.informacion-nosotros {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+}
+
+
+/* Blog.html */
+.contenedor-blog {
+    display              : grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap           : 4rem;
+}
+
+.entrada {
+    border-bottom : .2rem solid #e1e1e1;
+    padding-bottom: 4rem;
+    margin-bottom : 2rem;
+}
+
+/*para buscar la última entrada*/
+.entrada:last-of-type {
+    border: none;
+}
+
+.entrada-meta {
+    display        : flex;
+    justify-content: space-between;
+}
+
+.entrada-meta p {
+    font-weight: 700;
+    /* 
+        blod = 700
+        regular = 400
+        o para letras más gruesas usa en número
+        e.j. 900
+    */
+}
+
+.entrada-meta span {
+    color: #037bc0;
+}
+
+.contenido-entrada-blog {
+    width : 60rem;
+    margin: 0 auto;
+}
+
+
+/* Galería.html */
+.galeria {
+    /* para quitar la viñeta de la lista */
+    list-style           : none;
+    padding              : 0;
+    margin               : 0;
+    display              : grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap                  : 2rem;
+}
+
+.galeria img {
+    height    : 40rem;
+    width     : 40rem;
+    object-fit: cover;
+}
+
+/* Contacto.html - Formulario */
+.formulario {
+    max-width: 60rem;
+    margin   : 0 auto;
+}
+
+.formulario fieldset {
+    border       : .1rem solid #000;
+    margin-bottom: 2rem;
+}
+
+.formulario legend {
+    background-color: #005485;
+    width           : 100%;
+    text-align      : center;
+    color           : #fff;
+    text-transform  : uppercase;
+    font-weight     : 900;
+    padding         : 1rem;
+    margin-bottom   : 4rem;
+}
+
+.campo {
+    display      : flex;
+    margin-bottom: 2rem;
+}
+
+.campo label {
+    /* ancho fijo de 100px */
+    flex-basis: 10rem;
+}
+
+/*
+    Selector de atributo
+
+ .campo input[type='text'],
+ .campo input[type='tel'],
+ .campo input[type='email'],
+*/
+
+/* Para que el estilo se aplique a los
+    inputs que no sean de tipo radio
+ */
+.campo input:not([type='radio']),
+.campo textarea,
+.campo select {
+    /* toma el espacio disponible */
+    flex   : 1;
+    border : .1rem solid #e1e1e1;
+    padding: 1rem;
+}
